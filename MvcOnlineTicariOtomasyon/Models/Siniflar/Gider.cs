@@ -7,14 +7,14 @@ using System.Web;
 
 namespace MvcOnlineTicariOtomasyon.Models.Siniflar
 {
-    public class Kategori
+    public class Gider
     {
         [Key]
-        public int KategoriID { get; set; }
+        public int GiderID { get; set; }
         [Column(TypeName = "Varchar")]
-        [StringLength(30)]
-        public string KategoriAd { get; set; }
-
-        public ICollection<Urun> Uruns { get; set; }
+        [StringLength(100)]
+        public string GiderAciklama { get; set; }
+        public DateTime GiderTarih { get; set; }
+        public decimal GiderTutar { get; set; }
     }
 }
