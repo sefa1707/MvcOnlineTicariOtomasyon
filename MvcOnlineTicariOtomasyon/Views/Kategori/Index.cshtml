@@ -1,0 +1,51 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Kategori Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Kategori</a></li>
+    <li class="breadcrumb-item active">Index</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable Example</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.KategoriID</td>
+                            <td>@item.KategoriAd</td>
+                            <td><a href="/Kategori/KategoriGetir/@item.KategoriID" class="btn btn-primary">Düzenle</a></td>
+                            <td><a href="/Kategori/KategoriSil/@item.KategoriID" class="btn btn-danger">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Kategori/KategoriEkle" class="btn btn-success">Kategori Ekle</a>
+            <br /><br />
+        </div>
+    </div>
+</div>
