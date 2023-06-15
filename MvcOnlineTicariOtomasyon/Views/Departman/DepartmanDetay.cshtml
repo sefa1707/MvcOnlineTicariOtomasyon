@@ -1,0 +1,57 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Departman Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Departman</a></li>
+    <li class="breadcrumb-item active">Detay</li>
+    <li class="breadcrumb-item active">@ViewBag.departmanad Departmanı</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>@ViewBag.departmanad Departmanı Tablosu</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Personel ID</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Görsel</th>
+                        <th>Satışlar</th>
+                       
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Personel ID</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Görsel</th>
+                        <th>Satışlar</th>
+
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.PersonelID</td>
+                            <td>@item.PersonelAd</td>
+                            <td>@item.PersonelSoyad</td>
+                            <td>@item.PersonelGorsel</td>
+                            <td><a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-default">Detay</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Departman/DepartmanEkle" class="btn btn-success">Personel Ekle</a>
+            <br /><br />
+        </div>
+    </div>
+</div>

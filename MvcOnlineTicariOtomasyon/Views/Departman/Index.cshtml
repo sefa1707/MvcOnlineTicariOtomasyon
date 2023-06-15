@@ -1,0 +1,54 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Departman Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Departman</a></li>
+    <li class="breadcrumb-item active">Index</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Departman Tablosu</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Departman Adı</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                        <th>Detay</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Departman Adı</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                        <th>Detay</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DepartmanID</td>
+                            <td>@item.DepartmanAd</td>
+                            <td><a href="/Departman/DepartmanGetir/@item.DepartmanID" class="btn btn-primary">Düzenle</a></td>
+                            <td><a href="/Departman/DepartmanPasifYap/@item.DepartmanID" class="btn btn-danger">Pasif Yap</a></td>
+                            <td><a href="/Departman/DepartmanDetay/@item.DepartmanID" class="btn btn-info">Detay</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Departman/DepartmanEkle" class="btn btn-success">Departman Ekle</a>
+            <br /><br />
+        </div>
+    </div>
+</div>

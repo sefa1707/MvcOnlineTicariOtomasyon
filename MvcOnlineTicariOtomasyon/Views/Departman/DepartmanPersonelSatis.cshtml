@@ -1,0 +1,63 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "DepartmanPersonelSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Departman Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Departman</a></li>
+    <li class="breadcrumb-item active">Personel : @ViewBag.personelad</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>@ViewBag.personelad Satış Listesi</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                     <th>Satış ID</th>
+                     <th>Ürün</th>
+                     <th>Fiyat ₺</th>
+                     <th>Adet</th>
+                     <th>Toplam ₺</th>
+                     <th>Tarih</th>
+                     <th>Cari</th>
+                     <th>Yazdır</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Satış ID</th>
+                        <th>Ürün</th>
+                        <th>Fiyat ₺</th>
+                        <th>Adet</th>
+                        <th>Toplam ₺</th>
+                        <th>Tarih</th>
+                        <th>Cari</th>
+                        <th>Yazdır</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SatisHareketID</td>
+                            <td>@item.Urun.UrunAd</td>
+                            <td>@item.SatisHareketFiyat</td>
+                            <td>@item.SatisHareketAdet</td>
+                            <td>@item.SatisHareketToplamTutar</td>
+                            <td>@item.SatisHareketTarih</td>
+                            <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
+                            <td><a href="/Departman/DepartmanGetir/@item.SatisHareketID" class="btn btn-primary">Yazdır</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Departman/DepartmanEkle" class="btn btn-success">Satış Yap</a>
+            <br /><br />
+        </div>
+    </div>
+</div>
