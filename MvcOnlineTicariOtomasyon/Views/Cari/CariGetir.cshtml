@@ -1,0 +1,37 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cari
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Cari Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Cari</a></li>
+    <li class="breadcrumb-item active">Cari Güncelleme</li>
+</ol>
+
+@using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.CariID)
+    <label>Cari Adı</label>
+    <br />
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:red" })
+    <br />
+    <label>Cari Soyadı</label>
+    <br />
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:red" })
+    <br />
+    <label>Cari Şehir</label>
+    <br />
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariSehir, "", new { @style = "color:red" })
+    <br />
+    <label>Cari Mail</label>
+    <br />
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariMail, "", new { @style = "color:red" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+    <br />
+}
