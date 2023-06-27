@@ -1,0 +1,53 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Fatura Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Fatura</a></li>
+    <li class="breadcrumb-item active">Detay</li>
+    <li class="breadcrumb-item active">@ViewBag.faturano </li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>@ViewBag.faturano Detayları</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Açıklama</th>
+                        <th>Miktar</th>
+                        <th>Birim</th>
+                        <th>Tutar</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Açıklama</th>
+                        <th>Miktar</th>
+                        <th>Birim</th>
+                        <th>Tutar</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FaturaKalemID</td>
+                            <td>@item.FaturaKalemAciklama</td>
+                            <td>@item.FaturaKalemMiktar</td>
+                            <td>@item.FaturaKalemBirimFiyat</td>
+                            <td>@item.FaturaKalemTutar</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Fatura/YeniKalemEkle/" class="btn btn-success">Fatura Kalemi Ekle</a>
+            <br /><br />
+        </div>
+    </div>
+</div>

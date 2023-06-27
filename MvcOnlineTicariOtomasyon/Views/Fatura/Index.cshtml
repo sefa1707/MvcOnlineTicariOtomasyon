@@ -1,0 +1,70 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Fatura>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Fatura Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Fatura</a></li>
+    <li class="breadcrumb-item active">Index</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Fatura Tablosu</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Seri No</th>
+                        <th>Sıra No</th>
+                        <th>Vergi Dairesi</th>
+                        <th>Tarih</th>
+                        <th>Saat</th>
+                        <th>Teslim Eden</th>
+                        <th>Teslim Alan</th>
+                        <th>Fatura Toplam</th>
+                        <th>Güncelle</th>
+                        <th>Detaylar</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Seri No</th>
+                        <th>Sıra No</th>
+                        <th>Vergi Dairesi</th>
+                        <th>Tarih</th>
+                        <th>Saat</th>
+                        <th>Teslim Eden</th>
+                        <th>Teslim Alan</th>
+                        <th>Fatura Toplam</th>
+                        <th>Güncelle</th>
+                        <th>Detaylar</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.FaturaID</td>
+                        <td>@item.FaturaSeriNo</td>
+                        <td>@item.FaturaSiraNo</td>
+                        <td>@item.FaturaVergiDairesi</td>
+                        <td>@item.FaturaTarih</td>
+                        <td>@item.FaturaSaat</td>
+                        <td>@item.FaturaTeslimEden</td>
+                        <td>@item.FaturaTeslimAlan</td>
+                        <td>@item.FaturaToplamTutar</td>
+                        <td><a href="/Fatura/FaturaGetir/@item.FaturaID" class="btn btn-info">Güncelle</a></td>
+                        <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-info">Detay</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Fatura/FaturaEkle/" class="btn btn-success">Fatura Girişi</a>
+            <br /><br />
+        </div>
+    </div>
+</div>

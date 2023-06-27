@@ -1,0 +1,43 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Fatura
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Fatura Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Fatura</a></li>
+    <li class="breadcrumb-item active">Fatura Ekle</li>
+</ol>
+<form method="post" class="form-group">
+    <br />
+    <label>Fatura Seri No</label>
+    <br />
+    @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+    <br />
+    <label>Fatura Sıra No</label>
+    <br />
+    @Html.TextBoxFor(x => x.FaturaSiraNo, new { @class = "form-control" })
+    <br />
+    <label>Fatura Tarihi</label>
+    <br />
+    @Html.TextBoxFor(x => x.FaturaTarih, new { @class = "form-control" })
+    <br />
+    <label>Fatura Saati</label>
+    <br />
+    @Html.TextBoxFor(x => x.FaturaSaat, new { @class = "form-control" })
+    <br />
+    <label>Fatura Vergi Dairesi</label>
+    <br />
+    @Html.TextBoxFor(x => x.FaturaVergiDairesi, new { @class = "form-control" })
+    <br />
+    <label>Fatura Teslim Alan</label>
+    <br />
+    @Html.TextBoxFor(x => x.FaturaTeslimAlan, new { @class = "form-control" })
+    <br />
+    <label>Fatura Teslim Eden</label>
+    <br />
+    @Html.TextBoxFor(x => x.FaturaTeslimEden, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+    <br />
+</form>

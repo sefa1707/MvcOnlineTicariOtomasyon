@@ -18,17 +18,19 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         [StringLength(6)]
         public string FaturaSiraNo { get; set; }
         public DateTime FaturaTarih { get; set; }
-        public DateTime FaturaSaat { get; set; }
+        [Column(TypeName = "Char")]
+        [StringLength(5)]
+        public string FaturaSaat { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(100)]
         public string FaturaVergiDairesi { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
-        public string FaturaTelimAlan { get; set; }
+        public string FaturaTeslimAlan { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
-        public string FaturaTelimEden { get; set; }
-
+        public string FaturaTeslimEden { get; set; }
+        public decimal FaturaToplamTutar { get; set; }
         public ICollection<FaturaKalem> FaturaKalems { get; set; }
     }
 }
