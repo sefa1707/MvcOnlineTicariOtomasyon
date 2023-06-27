@@ -73,6 +73,11 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult UrunListesi()
+        {
+            var urunlistesi = db.Uruns.ToList();
+            return View(urunlistesi);
+        }
 
     }
 }

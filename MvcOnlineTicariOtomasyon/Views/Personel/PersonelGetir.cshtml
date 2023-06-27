@@ -1,0 +1,39 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 class="mt-4">Personel Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Personel</a></li>
+    <li class="breadcrumb-item active">Personel Güncelleme</li>
+</ol>
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.PersonelID)
+    <br />
+    <label>Personel Adı</label>
+    <br />
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    <br />
+    <label>Personel Soyadı</label>
+    <br />
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    <br />
+    <label>Personel Departmanı</label>
+    <br />
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.departmanadi, new { @class = "form-control" })
+    <br />
+    <label>Personel Görsel</label>
+    <br />
+    @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+    <br />
+    <label>Personel Durum</label>
+    <br />
+    @Html.TextBoxFor(x => x.PersonelDurum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+    <br />
+}

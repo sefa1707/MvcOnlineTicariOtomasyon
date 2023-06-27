@@ -1,0 +1,64 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Satış Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Satış</a></li>
+    <li class="breadcrumb-item active">@ViewBag.satisid  Nolu Satış Detayı</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>@ViewBag.satisid Nolu Satış Listesi</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ürün</th>
+                        <th>Marka</th>
+                        <th>Cari</th>
+                        <th>Personel</th>
+                        <th>Adet</th>
+                        <th>Fiyat</th>
+                        <th>Toplam Tutar</th>
+                        <th>Tarih</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ürün</th>
+                        <th>Marka</th>
+                        <th>Cari</th>
+                        <th>Personel</th>
+                        <th>Adet</th>
+                        <th>Fiyat</th>
+                        <th>Toplam Tutar</th>
+                        <th>Tarih</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.SatisHareketID</td>
+                        <td>@item.Urun.UrunAd</td>
+                        <td>@item.Urun.UrunMarka</td>
+                        <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
+                        <td>@item.Personel.PersonelAd @item.Personel.PersonelAd</td>
+                        <td>@item.SatisHareketAdet</td>
+                        <td>@item.SatisHareketFiyat</td>
+                        <td>@item.SatisHareketToplamTutar</td>
+                        <td>@item.SatisHareketTarih</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Satis/SatisYazdir" class="btn btn-success">Yazdır</a>
+            <br /><br />
+        </div>
+    </div>
+</div>

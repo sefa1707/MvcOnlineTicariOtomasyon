@@ -1,0 +1,41 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "YeniSatisYap";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 class="mt-4">Satış Yönetimi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Satış</a></li>
+    <li class="breadcrumb-item active">Satış Yap</li>
+</ol>
+<form method="post" class="form-group">
+    <label>Ürün</label>
+    <br />
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.urunadi, new { @class = "form-control" })
+    <br />
+    <label>Cari</label>
+    <br />
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.cariadi, new { @class = "form-control" })
+    <br />
+    <label>Personel</label>
+    <br />
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.personeladi, new { @class = "form-control" })
+    <br />
+    <label>Adet</label>
+    <br />
+    @Html.TextBoxFor(x => x.SatisHareketAdet, new { @class = "form-control" })
+    <br />
+    <label>Fiyat</label>
+    <br />
+    @Html.TextBoxFor(x => x.SatisHareketFiyat, new { @class = "form-control" })
+    <br />
+    <label>Toplam tutar</label>
+    <br />
+    @Html.TextBoxFor(x => x.SatisHareketToplamTutar, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+    <br />
+</form>
