@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MvcOnlineTicariOtomasyon.Models.Siniflar.SinifGrup2>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Personel - Departman Tablosu</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Task</th>
+                    <th>Progress</th>
+                    <th style="width: 40px">Label</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int sirano = 0;}
+                @foreach (var item in Model) {
+            <tr>
+                <td>@{sirano++;} @sirano</td>
+                <td>@item.personeldepartman</td>
+                <td>
+                    @if (item.personelsayi >= 1 && item.personelsayi <= 10)
+                    {
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-danger" style="width: 30%"></div>
+                        </div>
+                    }
+                    @if (item.personelsayi >= 11 && item.personelsayi <= 20)
+                    {
+                        <div class="progress progress-xs">
+                            <div class="progress-bar bg-warning" style="width: 70%"></div>
+                        </div>
+                    }
+                    @if (item.personelsayi >= 21)
+                    {
+                        <div class="progress progress-xs">
+                            <div class="progress-bar bg-success" style="width: 100%"></div>
+                        </div>
+                    }
+                </td>
+                <td>
+                    @if (item.personelsayi >= 1 && item.personelsayi <= 10)
+                    {
+                        <span class="badge bg-primary">@item.personelsayi</span>
+                    }
+                    @if (item.personelsayi >= 11 && item.personelsayi <= 20)
+                    {
+                        <span class="badge bg-warning">@item.personelsayi</span>
+                    }
+                    @if (item.personelsayi >= 20)
+                    {
+                        <span class="badge bg-success">@item.personelsayi</span>
+                    }
+                </td>
+            </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
