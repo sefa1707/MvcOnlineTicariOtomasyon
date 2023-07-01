@@ -61,9 +61,11 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult YeniKalemEkle(FaturaKalem k)
         {
+         
             db.FaturaKalems.Add(k);
             db.SaveChanges();
             return RedirectToAction("Index");

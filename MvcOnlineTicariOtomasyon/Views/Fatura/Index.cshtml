@@ -47,25 +47,53 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.FaturaID</td>
-                        <td>@item.FaturaSeriNo - @item.FaturaSiraNo</td>
-                        <td>@item.FaturaVergiDairesi</td>
-                        <td>@item.FaturaTarih</td>
-                        <td>@item.FaturaSaat</td>
-                        <td>@item.FaturaTeslimEden</td>
-                        <td>@item.FaturaTeslimAlan</td>
-                        <td>@item.FaturaToplamTutar</td>
-                        <td><a href="/Fatura/FaturaGetir/@item.FaturaID" class="btn btn-info">Güncelle</a></td>
-                        <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-info">Detay</a></td>
-                        <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-info">Liste</a></td>
-                        <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-info">Ekle</a></td>
-                    </tr>
+                        <tr>
+                            <td>@item.FaturaID</td>
+                            <td>@item.FaturaSeriNo - @item.FaturaSiraNo</td>
+                            <td>@item.FaturaVergiDairesi</td>
+                            <td>@item.FaturaTarih</td>
+                            <td>@item.FaturaSaat</td>
+                            <td>@item.FaturaTeslimEden</td>
+                            <td>@item.FaturaTeslimAlan</td>
+                            <td>@item.FaturaToplamTutar</td>
+                            <td><a href="/Fatura/FaturaGetir/@item.FaturaID" class="btn btn-info">Güncelle</a></td>
+                            <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-info">Detay</a></td>
+                            <td><button class="btn btn-success" data-toggle="modal" data-target="#Modalicerik">Liste</button></td>
+                            <td><a href="/Fatura/YeniKalemEkle/@item.FaturaID" class="btn btn-info">Ekle</a></td>
+                        </tr>
                     }
                 </tbody>
             </table>
             <a href="/Fatura/FaturaEkle/" class="btn btn-success">Fatura Girişi</a>
             <br /><br />
+        </div>
+    </div>
+</div>
+<div class="modal" id="Modalicerik">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">deneme</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FaturaSeriNo</td>
+                            <td>@item.FaturaSiraNo</td>
+                            <td>@item.FaturaToplamTutar</td>
+                          
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+            </div>
         </div>
     </div>
 </div>

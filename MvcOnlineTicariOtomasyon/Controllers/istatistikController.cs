@@ -41,17 +41,14 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.d12 = deger12;
 
             var deger13 = db.Uruns.Where(u => u.UrunID == (db.SatisHarekets.GroupBy(x => x.Urunid).OrderByDescending(z => z.Count()).Select(y => y.Key).FirstOrDefault())).Select(k => k.UrunAd).FirstOrDefault();
-
             ViewBag.d13 = deger13;
-
-            var deger14 = db.SatisHarekets.Sum(x => x.SatisHareketToplamTutar).ToString();
+            var deger14 = db.SatisHarekets.Sum(x => (decimal?)x.SatisHareketToplamTutar).ToString();
             ViewBag.d14 = deger14;
             DateTime bugun = DateTime.Today;
             var deger15 = db.SatisHarekets.Count(x => x.SatisHareketTarih == bugun).ToString();
             ViewBag.d15 = deger15;
-            var deger16 = db.SatisHarekets.Where(x => x.SatisHareketTarih == bugun).Sum(y => y.SatisHareketToplamTutar).ToString();
+            var deger16 = db.SatisHarekets.Where(x => x.SatisHareketTarih == bugun).Sum(y => (decimal?)y.SatisHareketToplamTutar).ToString();
             ViewBag.d16 = deger16;
-
             return View();
         }
 
