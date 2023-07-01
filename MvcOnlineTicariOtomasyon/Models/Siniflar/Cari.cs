@@ -27,6 +27,12 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         [StringLength(50, ErrorMessage = "En fazla 50 karakter yazabilirsiniz.")]
         [Required(ErrorMessage = "Bu alanı boş geçemezsiniz")]
         public string CariMail { get; set; }
+        [StringLength(15, ErrorMessage = "En fazla 15 karakter yazabilirsiniz.")]
+        [Required(ErrorMessage = "Bu alanı boş geçemezsiniz")]
+        public string CariSifre { get; set; }
+        [StringLength(15, ErrorMessage = "En fazla 15 karakter yazabilirsiniz.")]
+        [Required(ErrorMessage = "Bu alanı boş geçemezsiniz")]
+        public string CariTelefon { get; set; }
         public bool CariDurum { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
     }

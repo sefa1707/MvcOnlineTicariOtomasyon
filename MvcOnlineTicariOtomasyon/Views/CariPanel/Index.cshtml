@@ -1,0 +1,63 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cari
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/CariLayout.cshtml";
+}
+<br />
+<h2>Mvc Online Ticari Otomasyon Cari Bilgi Paneli</h2>
+<br />
+@using (Html.BeginForm("CariIndex", "CariPanel", FormMethod.Post))
+{
+<table class="table table-hover">
+    <tr>
+        <td>
+            <label>Mail Adresi :</label>
+        </td>
+        <td>
+            @HttpContext.Current.User.Identity.Name
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Adı :</label>
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Soyad :</label>
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Şehir :</label>
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Telefon :</label>
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.CariTelefon, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Şifre :</label>
+        </td>
+        <td>
+            @Html.PasswordFor(x => x.CariSifre, new { @class = "form-control" })
+            @*@Html.TextBoxFor(x => x.CariSifre, new { @class = "form-control" })*@
+        </td>
+    </tr>
+</table>
+<button class="btn btn-warning">Bilgilerimi Güncelle</button>
+}

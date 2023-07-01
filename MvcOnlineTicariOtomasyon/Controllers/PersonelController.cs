@@ -53,6 +53,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var personel = db.Personels.Find(p.PersonelID);
             personel.PersonelAd = p.PersonelAd;
             personel.PersonelSoyad = p.PersonelSoyad;
+            personel.PersonelGorsel = p.PersonelGorsel;
             personel.Departmanid = p.Departmanid;
             personel.PersonelDurum = p.PersonelDurum;
             db.SaveChanges();
