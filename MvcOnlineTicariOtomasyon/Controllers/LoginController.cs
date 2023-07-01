@@ -37,7 +37,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult CariGirisFormu(Cari c)
         {
-            var kullanicidogrulama = db.Caris.FirstOrDefault(x => x.CariMail == c.CariMail && x.CariSifre == c.CariSifre);
+            var kullanicidogrulama = db.Caris.FirstOrDefault(x => x.CariMail == c.CariMail  && x.CariSifre == c.CariSifre);
             if (kullanicidogrulama != null)
             {
                 FormsAuthentication.SetAuthCookie(kullanicidogrulama.CariMail, false);
@@ -47,6 +47,28 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             else
             {
                 return RedirectToAction("Index","Login");
+            }
+
+        }
+
+        public ActionResult PersonelGirisFormu()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PersonelGirisFormu(Personel p)
+        {
+            var kullanicidogrulama = db.Personels.FirstOrDefault(x => x.PersonelMail == p.PersonelMail && x.PersonelSifre == p.PersonelSifre);
+            if (kullanicidogrulama != null)
+            {
+                FormsAuthentication.SetAuthCookie(kullanicidogrulama.PersonelMail, false);
+                Session["PersonelMail"] = kullanicidogrulama.PersonelMail.ToString();
+                return RedirectToAction("Index", "Kategori");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
             }
 
         }

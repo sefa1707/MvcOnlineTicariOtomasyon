@@ -17,8 +17,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Seri No</th>
-                        <th>Sıra No</th>
+                        <th>Seri ve Sıra No</th>
                         <th>Vergi Dairesi</th>
                         <th>Tarih</th>
                         <th>Saat</th>
@@ -27,13 +26,14 @@
                         <th>Fatura Toplam</th>
                         <th>Güncelle</th>
                         <th>Detaylar</th>
+                        <th>Liste</th>
+                        <th>Ekle</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Seri No</th>
-                        <th>Sıra No</th>
+                        <th>Seri ve Sıra No</th>
                         <th>Vergi Dairesi</th>
                         <th>Tarih</th>
                         <th>Saat</th>
@@ -49,8 +49,7 @@
                     {
                     <tr>
                         <td>@item.FaturaID</td>
-                        <td>@item.FaturaSeriNo</td>
-                        <td>@item.FaturaSiraNo</td>
+                        <td>@item.FaturaSeriNo - @item.FaturaSiraNo</td>
                         <td>@item.FaturaVergiDairesi</td>
                         <td>@item.FaturaTarih</td>
                         <td>@item.FaturaSaat</td>
@@ -59,6 +58,8 @@
                         <td>@item.FaturaToplamTutar</td>
                         <td><a href="/Fatura/FaturaGetir/@item.FaturaID" class="btn btn-info">Güncelle</a></td>
                         <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-info">Detay</a></td>
+                        <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-info">Liste</a></td>
+                        <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-info">Ekle</a></td>
                     </tr>
                     }
                 </tbody>

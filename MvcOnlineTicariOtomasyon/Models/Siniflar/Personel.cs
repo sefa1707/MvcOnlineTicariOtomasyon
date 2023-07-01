@@ -20,6 +20,16 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string PersonelGorsel { get; set; }
+        [Column(TypeName = "Varchar")]
+        [StringLength(50, ErrorMessage = "En fazla 50 karakter yazabilirsiniz.")]
+        [Required(ErrorMessage = "Bu alanı boş geçemezsiniz")]
+        public string PersonelMail { get; set; }
+        [StringLength(15, ErrorMessage = "En fazla 15 karakter yazabilirsiniz.")]
+        [Required(ErrorMessage = "Bu alanı boş geçemezsiniz")]
+        public string PersonelSifre { get; set; }
+        [StringLength(15, ErrorMessage = "En fazla 15 karakter yazabilirsiniz.")]
+        [Required(ErrorMessage = "Bu alanı boş geçemezsiniz")]
+        public string PersonelTelefon { get; set; }
 
         public bool PersonelDurum { get; set; }
 

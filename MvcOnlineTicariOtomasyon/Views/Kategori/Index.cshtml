@@ -1,5 +1,7 @@
 ﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
-@model List<Kategori>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Kategori>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -13,7 +15,16 @@
     <div class="card-header"><i class="fas fa-table mr-1"></i>Kategori Tablosu</div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            @using (Html.BeginForm("Index", "Urun",FormMethod.Get))
+            {
+            <p>
+                Ürün Adı : @Html.TextBox("k")
+            
+
+                <input type="submit" value="Ara" />
+            </p>
+            }
+            <table class="table table-bordered" @*id="dataTable"*@ width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -44,6 +55,7 @@
                     }
                 </tbody>
             </table>
+            @Html.PagedListPager((IPagedList)Model, sayfa=>Url.Action("Index", new {sayfa}))
             <a href="/Kategori/KategoriEkle" class="btn btn-success">Kategori Ekle</a>
             <br /><br />
         </div>
