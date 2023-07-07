@@ -17,8 +17,8 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string PersonelSoyad { get; set; }
-        [Column(TypeName = "Varchar")]
-        [StringLength(250)]
+        //[Column(TypeName = "Varchar")]
+        //[StringLength(250)]
         public string PersonelGorsel { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(50, ErrorMessage = "En fazla 50 karakter yazabilirsiniz.")]

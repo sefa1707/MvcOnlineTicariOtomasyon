@@ -3,12 +3,13 @@
     ViewBag.Title = "PersonelEkle";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-<h1 class="mt-4">Ürün Yönetimi</h1>
+<h1 class="mt-4">Personel Yönetimi</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item"><a href="index.html">Ürün</a></li>
-    <li class="breadcrumb-item active">Ürün Ekle</li>
+    <li class="breadcrumb-item"><a href="index.html">Personel</a></li>
+    <li class="breadcrumb-item active">Personel Ekle</li>
 </ol>
-<form method="post" class="form-group">
+@using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{<form method="post" class="form-group">
     <br />
     <label>Personel Adı</label>
     <br />
@@ -25,12 +26,25 @@
     <br />
     <label>Personel Görsel</label>
     <br />
-    @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })*@
+    <input type="file" name="PersonelGorsel" />
     <br />
     <label>Personel Durum</label>
     <br />
     @Html.TextBoxFor(x => x.PersonelDurum, new { @class = "form-control" })
     <br />
+    <label>Personel Mail</label>
+    <br />
+    @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control" })
+    <br />
+    <label>Personel Şifre</label>
+    <br />
+    @Html.TextBoxFor(x => x.PersonelSifre, new { @class = "form-control" })
+    <br />
+    <label>Personel Telefon</label>
+    <br />
+    @Html.TextBoxFor(x => x.PersonelTelefon, new { @class = "form-control" })
+    <br />
     <button class="btn btn-success">Kaydet</button>
     <br />
-</form>
+</form>}
