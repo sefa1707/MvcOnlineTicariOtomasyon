@@ -3,18 +3,25 @@
     ViewBag.Title = "KategoriEkle";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <h1 class="mt-4">Kategori Yönetimi</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="index.html">Kategori</a></li>
     <li class="breadcrumb-item active">Kategori Ekle</li>
 </ol>
 
-    <form method="post" class="form-group">
-        <br />
-        <label>Kategori Adı</label>
-        <br />
-        @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
-        <br />
-        <button class="btn btn-success">Kaydet</button>
-        <br />
-    </form>
+<form method="post" class="form-group">
+    <br />
+    <label>Kategori Adı</label>
+    <br />
+    @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success" id="Btn1">Kaydet</button>
+    <br />
+    <script>
+        $('#Btn1').click(function () {
+            alert("Kategori Başarılı Bir Şekilde Eklendi.")
+        });
+    </script>
+</form>

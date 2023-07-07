@@ -135,6 +135,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\CariPanelController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
@@ -2170,6 +2171,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\1657617961202.jpg.jpg" />
+    <Content Include="Image\Adsız tasarım.png.png" />
+    <Content Include="Image\ford-mustang-shelby-gt500-code-red-2022-01.jpg.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="AdminTema\dist\401.html" />
@@ -2913,10 +2917,10 @@
     <Content Include="Views\CariPanel\Index.cshtml" />
     <Content Include="Views\Shared\CariLayout.cshtml" />
     <Content Include="Views\CariPanel\CariSiparislerim.cshtml" />
+    <Content Include="Views\Alert\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Image\" />
     <Folder Include="Views\CariPanelim\" />
   </ItemGroup>
   <ItemGroup>

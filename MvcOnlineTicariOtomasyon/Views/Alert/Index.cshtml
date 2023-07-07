@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Button</th>
+        <th>İşlevi</th>
+        <th>Kodu</th>
+    </tr>
+    <tr>
+        <td><button class="btn btn-warning" id="Btn1">Swal</button></td>
+        <td>İstenilen metni yayınlıyor.</td>
+        <td>
+            $('#Btn1').click(function () {
+            swal("Hello world!");
+            });
+        </td>
+    </tr>
+    <tr>
+        <td><button class="btn btn-info" id="Btn2">Swal</button></td>
+        <td>İstenilen başlık ve metni yayınlıyor.</td>
+        <td>
+            $('#Btn2').click(function () {
+            swal("Here's the title!", "...and here's the text!");
+            });
+        </td>
+    </tr>
+    <tr>
+        <td><button class="btn btn-primary" id="Btn3">Swal</button></td>
+        <td>Başarılı efekti, başlık ve istenen metni yazdırıyor.</td>
+        <td>
+            $('#Btn3').click(function () {
+            swal("Good job!", "You clicked the button!", "success");
+            });
+        </td>
+    </tr>
+    <tr>
+        <td><button class="btn btn-danger" id="Btn4">Swal</button></td>
+        <td>İki mesajı ard arda yazdırıyor.</td>
+        <td>
+            $('#Btn4').click(function () {
+            swal("Click on either the button or outside the modal.")
+            .then((value) => {
+            swal(`The returned value is: ${value}`);
+            });
+            });
+        </td>
+    </tr>
+    <tr>
+        <td><button class="btn btn-default" id="Btn5">Swal</button></td>
+        <td>Emin misiniz tarzında bir ekran getiriyor.</td>
+        <td>
+            $('#Btn5').click(function () {
+            swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+            swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success",
+            });
+            } else {
+            swal("Your imaginary file is safe!");
+            }
+            });
+            });
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+<script>
+    $('#Btn1').click(function () {
+        swal("Hello world!");
+    });
+</script>
+<script>
+    $('#Btn2').click(function () {
+        swal("Here's the title!", "...and here's the text!");
+    });
+</script>
+<script>
+    $('#Btn3').click(function () {
+        swal("Good job!", "You clicked the button!", "success");
+    });
+</script>
+<script>
+    $('#Btn4').click(function () {
+        swal("Click on either the button or outside the modal.")
+            .then((value) => {
+                swal(`The returned value is: ${value}`);
+            });
+    });
+</script>
+<script>
+    $('#Btn5').click(function () {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your imaginary file has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+    });
+</script>
+
+
+
